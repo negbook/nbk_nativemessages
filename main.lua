@@ -192,7 +192,7 @@ local coordsmessage2 = function(text,coords,duration,cb)
                 coordsmessage2_handles[coordsmessage2_handle] = "unshow"
                 TweenCFX.Tween.to(object,durationIn,{_alpha=255,ease=TweenCFX.Ease.LinearNone,onCompleteScope=function(object,coordsmessage2_handle,cb)
                     coordsmessage2_handles[coordsmessage2_handle] = "show" 
-                end,onCompleteArgs={object,coordsmessage_handle,cb}})
+                end,onCompleteArgs={object,coordsmessage2_handle,cb}})
                 Threads.CreateLoopOnce("coordsmessage2"..coordsmessage2_handle,0,function(Break)
                     if coordsmessage2_handles[coordsmessage2_handle]=="unshow" then 
                         DrawNextOrder(coordsmessage2_handle)
@@ -219,7 +219,7 @@ local coordsmessage2 = function(text,coords,duration,cb)
                             coordsmessage2_handles[coordsmessage2_handle] = "unshow" 
                             TweenCFX.Tween.to(object,durationIn,{_alpha=0,ease=TweenCFX.Ease.LinearNone,onCompleteScope=function(object,coordsmessage2_handle,cb)
                                 coordsmessage2_handles[coordsmessage2_handle] = "hide" 
-                            end,onCompleteArgs={object,coordsmessage_handle,cb}})
+                            end,onCompleteArgs={object,coordsmessage2_handle,cb}})
                         end 
                     elseif coordsmessage2_handles[coordsmessage2_handle]=="hide" then 
                         local distance = #(GetEntityCoords(PlayerPedId()) - coords)
@@ -229,7 +229,7 @@ local coordsmessage2 = function(text,coords,duration,cb)
                                 coordsmessage2_handles[coordsmessage2_handle] = "unshow" 
                                 TweenCFX.Tween.to(object,durationIn,{_alpha=255,ease=TweenCFX.Ease.LinearNone,onCompleteScope=function(object,coordsmessage2_handle,cb)
                                     coordsmessage2_handles[coordsmessage2_handle] = "show" 
-                                end,onCompleteArgs={object,coordsmessage_handle,cb}})
+                                end,onCompleteArgs={object,coordsmessage2_handle,cb}})
                             else 
                                 TweenCFX.Tween.removeTween(object)
                                 object._alpha = 0
